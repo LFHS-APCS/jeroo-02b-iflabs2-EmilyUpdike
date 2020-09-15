@@ -20,10 +20,10 @@ public class Main implements Directions {
     public static void runJerooCode() {
         TestMain test = new TestMain();
         test.setup();
-        test.test1_pickRectangle();
+        //test.test1_pickRectangle();
         test.test2_disableNet();
-        test.test3_hopCheckFlowersOr();
-        test.test4_hopCheckFlowersAnd();
+        //test.test3_hopCheckFlowersOr();
+        //test.test4_hopCheckFlowersAnd();
 
     }
 

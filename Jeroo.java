@@ -17,6 +17,15 @@ public class Jeroo extends JerooBase {
      */
     public void pickRectangle()
     {
+      hop();
+      if(isFlower(AHEAD)){
+        hop();
+        pick();
+        hop();
+        pick();
+        hop();
+        pick();
+      } else {
 
     }
 
@@ -26,7 +35,12 @@ public class Jeroo extends JerooBase {
      * and then hop onto the newly clear space.
      */
     public void disableNet() {
-
+      if(isFlower(HERE))
+        if(isNet(AHEAD))
+          pick();
+          throw();
+            else
+            hop();
     }
 
     /**
