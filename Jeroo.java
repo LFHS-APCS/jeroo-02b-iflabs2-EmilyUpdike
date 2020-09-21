@@ -27,8 +27,7 @@ public class Jeroo extends JerooBase {
       hopPick();
       hopPick();
       hopPick();
-      turn(RIGHT);
-      turn(RIGHT);
+      turnAround();
       hop();
       hop();
       hop();
