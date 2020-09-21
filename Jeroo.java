@@ -15,19 +15,37 @@ public class Jeroo extends JerooBase {
      * IMPORTANT:  You should be calling the same helper method
      *             four times to achieve this.
      */
-    public void pickRectangle()
-    {
-      hop();
-      if(isFlower(AHEAD)){
-        hop();
-        pick();
-        hop();
-        pick();
-        hop();
-        pick();
-      } else {
-
+    public void turnAround(){
+      turn(LEFT);
+      turn(LEFT);
     }
+    public void hopPick(){
+      hop();
+      pick();
+    }
+    public void pickUpX3(){
+      hopPick();
+      hopPick();
+      hopPick();
+      turn(RIGHT);
+      turn(RIGHT);
+      hop();
+      hop();
+      hop();
+      turn(LEFT);
+      hop();
+      turn(LEFT);
+    }
+  public void pickRectangle()
+    {
+      pickUpX3();
+      pickUpX3();
+      pickUpX3();
+      pickUpX3();
+    }
+
+    
+
 
     /**
      * if the Jeroo is on a flower and there is a net in front of it,
@@ -35,13 +53,15 @@ public class Jeroo extends JerooBase {
      * and then hop onto the newly clear space.
      */
     public void disableNet() {
-      if(isFlower(HERE))
-        if(isNet(AHEAD))
+      if (isFlower(HERE)){
+        if (isNet(AHEAD)){
           pick();
-          throw();
-            else
-            hop();
+          toss();
+          hop();
+        }
+      }
     }
+
 
     /**
      * Jeroo should hop forward only if there is at least one
@@ -49,7 +69,10 @@ public class Jeroo extends JerooBase {
      */
     public void hopCheckFlowersOr() 
     {
-
+      if (isFlower(LEFT))
+        hop();
+      else if (isFlower(RIGHT))
+        hop();
     }
 
     /**
@@ -57,10 +80,13 @@ public class Jeroo extends JerooBase {
      *   on its left and on its right
      */
     public void hopCheckFlowersAnd() 
-    {
-
-    }
-
+   {
+      if (isFlower(LEFT)){
+        if (isFlower(RIGHT)){
+          hop();
+        }
+      }
+   }
     // Do NOT touch the code below here
     public Jeroo() {super();}
 
